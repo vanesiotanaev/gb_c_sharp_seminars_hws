@@ -120,8 +120,6 @@ Console.Write("Please, enter the number: ");
 int usernum = Convert.ToInt32(Console.ReadLine());
 int answer = ThirdDigitMethod (usernum);
 
-*/
-
 // Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
 
 bool WeekDayMethod (int daynumb)
@@ -154,3 +152,94 @@ bool WeekDayMethod (int daynumb)
 Console.Write("Please, enter the number: ");
 int userdaynum = Convert.ToInt32(Console.ReadLine());
 bool answer = WeekDayMethod (userdaynum);
+
+
+//Домашнее задание к семинару №3. 16.07.2022
+
+//Задача 19. Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+
+bool PalindromeMethod (int number)
+{
+    while (number <= 9999 || number >= 99999)
+    {
+        Console.Write("The number is not five-digit. Please, enter the five-digit number: ");
+        number = Convert.ToInt32(Console.ReadLine());
+    }
+    int unitdigit = number % 10;
+    int tensdigit = (number % 100) / 10;
+    int hundredsdigit = (number % 1000) / 100;
+    int thousandsdigit = (number % 10000) / 1000;
+    int tensofthousandsdigit = number / 10000;
+
+    if (unitdigit == tensofthousandsdigit && tensdigit == thousandsdigit) 
+    {
+       Console.Write("The number " + number + " is a Palindrome!");
+       return true; 
+    }
+    else 
+    {
+        Console.Write("The number " + number + " is not a Palindrome!");
+        return false;
+    }
+    
+}
+
+Console.Write("Please, enter the number: ");
+int usernumber = Convert.ToInt32(Console.ReadLine());
+bool answer = PalindromeMethod(usernumber);
+
+// Задача 21. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+
+double Distance3DMethod (double xA, double yA, double zA, double xB, double yB, double zB)
+{
+    double hypotenuse2D = Math.Sqrt((yB - yA) * (yB - yA) + (xB - xA) * (xB - xA));
+    double hypotenuse3D = Math.Sqrt((hypotenuse2D * hypotenuse2D) + (zB - zA) * (zB - zA));
+
+    return hypotenuse3D;
+}
+
+Console.Write("Please, enter the x-coordinate of A: ");
+double x1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Please, enter the y-coordinate of A: ");
+double y1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Please, enter the z-coordinate of A: ");
+double z1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Please, enter the x-coordinate of B: ");
+double x2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Please, enter the y-coordinate of B: ");
+double y2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Please, enter the z-coordinate of B: ");
+double z2 = Convert.ToInt32(Console.ReadLine());
+
+double answer = Distance3DMethod(x1, y1, z1, x2, y2, z2);
+Console.Write ("The distance between A and B is " + answer);
+
+*/
+
+//Задача 23. Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+
+int ThirdDegreeMethod (int number)
+{
+    if (number >= 1)
+    {
+        Console.Write("Table of numbers from 1 to N in the 3rd degree: ");
+        int current = 1;
+        while (current <= number)
+        {
+            int thirddegree = current * current * current;
+            current++;
+            Console.Write(thirddegree + " ");
+        }
+        return number;
+    }
+    else
+    {
+        Console.Write("The number must be positive and no less than 1!");
+        return 0;  
+    }
+    
+}
+
+Console.Write("Please, enter the N-number: ");
+int usernumber = Convert.ToInt32(Console.ReadLine());
+int N = ThirdDegreeMethod(usernumber);
