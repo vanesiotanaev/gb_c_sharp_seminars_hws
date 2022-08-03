@@ -214,7 +214,7 @@ double z2 = Convert.ToInt32(Console.ReadLine());
 double answer = Distance3DMethod(x1, y1, z1, x2, y2, z2);
 Console.Write ("The distance between A and B is " + answer);
 
-*/
+
 
 //Задача 23. Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 
@@ -243,3 +243,81 @@ int ThirdDegreeMethod (int number)
 Console.Write("Please, enter the N-number: ");
 int usernumber = Convert.ToInt32(Console.ReadLine());
 int N = ThirdDegreeMethod(usernumber);
+
+//Домашнее задание к семинару №4. 03.08.2022
+
+//1. Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+
+int ValueToThePowerMethod(int a, int b)
+{
+    if (b != 0)   
+    {
+        int value = a;
+        for (int i = 1; i < b; i++)
+        {
+            a = a * value;
+        }
+        Console.WriteLine($"{value} to the power of {b} is {a}!");
+        return a;
+    }
+    else
+    {
+        Console.WriteLine($"The power must be represented by a natural number!");
+        return a;
+    }
+}
+
+Console.Write("Please, enter the number: ");
+int usernumb = Convert.ToInt32(Console.ReadLine());
+Console.Write("Please, enter the power: ");
+int userpow = Convert.ToInt32(Console.ReadLine());
+
+int result = ValueToThePowerMethod(usernumb, userpow);
+
+// 2. Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+
+int ValueNumbersSumMethod (int number)
+{
+    int temp = number;
+    int sum = 0;
+    while (number > 0)
+    {
+        sum = sum + number % 10;
+        number = number / 10;
+    }
+    Console.Write($"The sum of numbers in the value {temp} is {sum}!");
+    return sum;
+}
+
+Console.Write("Please, enter the number: ");
+int usernumb = Convert.ToInt32(Console.ReadLine());
+int result = ValueNumbersSumMethod(usernumb);
+
+*/
+
+// 3. Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+
+int[] UserArrayMethod()
+{
+    int size = 8;
+    int[] array = new int[size];
+
+    for (int count = 0; count < size; count++)
+    {
+        Console.Write($"Введите {count+1}й элемент массива: ");
+        array[count] = Convert.ToInt32(Console.ReadLine());
+    }
+    return array;
+}
+
+void ShowArrayMethod(int[] array)
+{
+    Console.Write("Массив: ");
+    for (int i = 0; i < array.Length; i++)
+      Console.Write(array[i] + " ");
+
+    Console.WriteLine();
+}
+
+int[] genarray = UserArrayMethod();
+ShowArrayMethod(genarray);
