@@ -94,7 +94,7 @@ int ur = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите индекс строки искомого элемента: ");
 int uc = Convert.ToInt32(Console.ReadLine());
 
-bool Existance = ArrElementExist(userArray, ur, uc);
+bool Existence = ArrElementExist(userArray, ur, uc);
 
 
 //Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
