@@ -193,7 +193,6 @@ Show2DArray(userArrayB);
 Console.WriteLine("Произвдение данных матриц выглядит так: ");
 Show2DArray(Multipy2Matrices(userArrayA, userArrayB));
 
-*/
 //Задача 60. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
 //Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 //массив размером 2 x 2 x 2
@@ -251,7 +250,77 @@ bool ElementExistence(int[,,] array, int element)
 int[,,] my3DArray = Generate3DArray(2, 2, 2);
 Show3DArray(my3DArray);
 
+*/
 
+//Задача 62. Заполните спирально массив 4 на 4.
+
+int[,] GenerateSpiralArray(int r, int c)
+{
+    int[,] array2D = new int[r, c];
+    
+    int i = 0;
+    int j = 0;
+    int current = 1;
+
+    while (current <= r*c)
+    {
+        while (j < array2D.GetLength(1) && array2D[i,j] == 0)
+        {
+            array2D[i, j] = current;
+            current++;
+            j++;
+        }
+        i++;
+        j--;
+
+
+        while (i < array2D.GetLength(0) && array2D[i,j] == 0)
+        {
+            array2D[i, j] = current;
+            current++;
+            i++;
+        }
+        i--;
+        j--;
+
+        while (j >= 0 && array2D[i,j] == 0)
+        {
+            array2D[i, j] = current;
+            current++;
+            j--;
+        }
+        j++;
+        i--;
+
+        while (i > 0 && array2D[i,j] == 0)
+        {
+            array2D[i, j] = current;
+            current++;
+            i--;
+        }
+        i++;
+        j++;
+    }
+        
+    return array2D;
+}
+
+void Show2DArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] >= 10) Console.Write(array[i, j] + " ");
+            else Console.Write(array[i, j] + "  ");
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+int[,] userArrayA = GenerateSpiralArray(7, 7);
+Show2DArray(userArrayA);
 
 
 
